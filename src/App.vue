@@ -1,30 +1,70 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="navbar" :class="{ 'navbar--hidden': !showNavbar }" >
+    <app-header />
+  </div>
+
+  <div class="wrap">
+    <div class="nav">
+      <div class="content-block">
+        <router-view />
+      </div>
+
+      <app-right-nav v-if="!isLoginRoute"/>
+
+    </div>
+  </div>
+
+  <div class="wrap wrap_footer">
+    <app-footer />
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import AppHeader from '@/components/AppHeader.vue'
+import AppFooter from '@/components/AppFooter.vue'
+import AppRightNav from '@/components/AppNav.vue'
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: { AppHeader, AppFooter, AppRightNav },
+  data() {
+    return {
+      showNavbar: true,
+      lastScrollPosition: 0
     }
+  },
+
+  computed: {
+    isLoginRoute() {
+      return this.$route.name === 'login-route' || this.$route.name === 'register-route';
+    }
+  },
+
+  methods: {
+    onScroll() {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 50) {
+        return
+      }
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
+    }
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.onScroll)
   }
 }
+</script>
+ 
+<style lang="scss">
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Open+Sans:wght@400;500;600&display=swap');
+@import "@/scss/app.scss";
+
 </style>

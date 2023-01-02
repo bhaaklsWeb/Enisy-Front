@@ -1,0 +1,184 @@
+//vars
+$border_color: #e6e6e6;
+$color_button: #23374d;
+$color_text: #1a1a1a;
+$footer-contents_color: #808080;
+$global-bg-color: #f8f9fa;
+$hover_color: rgb(0, 170, 255);
+
+.content-block {
+
+  &__auth {
+    text-align: center;
+    background-color: $global-bg-color;
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 40px 40px;
+      border: 1px solid $global-bg-color;
+      box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.041);
+      background-color: #fff;
+
+      &>h2 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 32px;
+        color: $color_text;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      &>h3 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 24px;
+        color: $color_text;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      & * {
+        box-sizing: border-box;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      //with inputs
+      .flex-outer {
+        list-style-type: none;
+        padding: 0;
+        max-width: 800px;
+        margin: 0 auto;
+
+        li {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+
+          label {
+            padding: 8px;
+            text-align: center;
+            text-transform: uppercase;
+            // letter-spacing: .06em;
+          }
+
+          p {
+            padding: 8px;
+            font-weight: 300;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            flex: 1 0 120px;
+            max-width: 220px;
+            margin: 0;
+          }
+
+          input {
+            background-color: $global-bg-color;
+
+            &:not([type='checkbox']) {
+              padding: 10px;
+              border: 1px solid $global-bg-color;
+            }
+
+            &::placeholder {
+              color: $color_text;
+            }
+
+            &:focus,
+            :active,
+            :hover {
+              outline: none;
+              outline-offset: 0;
+            }
+
+            &:focus {
+              border: 1px solid $hover_color;
+              box-shadow: 0px 0px 2px $hover_color;
+            }
+
+            &:disabled,
+            &[disabled] {
+              &::placeholder { 
+                color: #808080; 
+              }
+              cursor: not-allowed !important;
+            }
+          }
+
+          textarea {
+            padding: 15px;
+            border: none;
+          }
+
+          button {
+            padding: 10px 16px;
+            margin: 0 auto;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            border-radius: 4px;
+            font-weight: 500;
+            background-color: $color_button;
+            color: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover {
+              color: rgb(0, 170, 255);
+            }
+
+            &:focus {
+              box-shadow: 0px 0px 2px $hover_color;
+            }
+
+            &:disabled,
+            &[disabled] {
+              background-color: $color_button;
+              opacity: 0.7;
+              cursor: not-allowed !important;
+
+              &:hover {
+                color: #fff !important;
+              }
+            }
+          }
+        }
+
+        >li {
+          &:not(:last-child) {
+            margin-bottom: 25px;
+          }
+
+          &:last-child {
+            margin-top: 40px;
+          }
+
+          >label {
+            flex: 1 0 120px;
+            max-width: 220px;
+          }
+
+          >label+* {
+            flex: 1 0 220px;
+          }
+        }
+      }
+
+      .flex-inner {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0 8px;
+        justify-content: space-between;
+        flex: 1 0 220px;
+
+        li {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
