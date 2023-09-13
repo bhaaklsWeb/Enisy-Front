@@ -1,24 +1,18 @@
-# tsrra
+# Enisy
+Проект создан для развлекательных, учебных целей. Предназначен для тематики выкладывания статьей и их обсуждения. Сейчас находится на стадии разработки(временами добавляюю, удаляю что-то, для практики полезно).
 
-## Project setup
-```
-npm install
-```
+## Технологии
+- [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
+- [Vue.js](https://www.vuejs.org/)
+- [Vue Router](https://router.vuejs.org/)
+- [Scss](https://sass-scss.ru/)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Структура
+Состоит из Главной страницы
+![Home](src/assets/img/photo-example-website/e-project.png)
+![Home 2](src/assets/img/photo-example-website/e-project1.png)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+страниц для Входа
+![Home](src/assets/img/photo-example-website/e-project2.0.png) 
+Регистрации
+![Home](src/assets/img/photo-example-website/e-project2.1.png) 
